@@ -1,20 +1,28 @@
 
-package Practical3Q1;
+package Practical3Q2;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int[] integerArray = {1, 2, 4, 5, 10, 100, 2, -22};
 
-        System.out.print("Enter number of quiz scores to process: ");
-        int totalQuiz = scanner.nextInt();
+        System.out.println();
+        System.out.println(Arrays.toString(integerArray));
+        System.out.println("The index of the smallest element is " +
+                getIndexOfSmallestElement(integerArray));
+    }
 
-        QuizProcessor quizProcessor = new QuizProcessor(totalQuiz);
+    static int getIndexOfSmallestElement(int[] array) {
+        int smallestElement = array[0];
+        int smallestIndex = 0;
+        for (int index = 1; index < array.length; index++) {
+            if (array[index] < smallestElement) {
+                smallestElement = array[index];
+                smallestIndex = index;
+            }
+        }
 
-        System.out.println("\nResults\n=======");
-        System.out.println("Average is " + quizProcessor.getAverageScore());
-        System.out.println("Number of scores above or equal to the average is " + quizProcessor.getTotalAboveOrEqualToAverageScore());
-        System.out.println("Number of scores below the average is " + quizProcessor.getBelowAverageScore());
+        return smallestIndex;
     }
 }

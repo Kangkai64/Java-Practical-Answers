@@ -1,4 +1,4 @@
-package Practical3;
+package Practical3Q1;
 
 import java.util.Scanner;
 
